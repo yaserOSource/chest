@@ -31,6 +31,8 @@ export default () => {
     
     const dropObject = new THREE.Object3D();
     dropObject.position.y = 0.5;
+    dropObject.updateMatrix();
+    dropObject.updateMatrixWorld();
     app.add(dropObject);
 
     // app.updateMatrixWorld();
@@ -109,7 +111,9 @@ export default () => {
           frameCb = null;
         } else {
           mixer.update(timeDiff);
-          mixer.getRoot().updateMatrixWorld();
+          app.updateMatrix();
+          app.updateMatrixWorld();
+//           mixer.getRoot().updateMatrixWorld();
         }
       }
       frameCb = animate;
