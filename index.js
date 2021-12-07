@@ -111,9 +111,10 @@ export default () => {
           frameCb = null;
         } else {
           mixer.update(timeDiff);
-          app.updateMatrix();
-          app.updateMatrixWorld();
-//           mixer.getRoot().updateMatrixWorld();
+//           app.updateMatrix();
+//           app.updateMatrixWorld();
+          mixer.getRoot().updateMatrixWorld();
+          mixer.getRoot().updateMatrix();
         }
       }
       frameCb = animate;
